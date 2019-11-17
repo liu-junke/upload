@@ -1,0 +1,24 @@
+.list {
+  height: 100%;
+  overflow: auto;
+}
+
+.list li {
+  display: flex;
+  padding-left: .09rem;
+  padding-top: .09rem;
+}
+
+span {
+  color: black;
+}
+
+.title_text {
+  font-size: .14rem;
+  color: black;
+}
+
+.img img {
+  width: 1.12rem;
+  height: 1.12rem;
+}

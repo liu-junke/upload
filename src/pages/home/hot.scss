@@ -1,0 +1,93 @@
+.list-wrap{
+   height: 100%;
+   overflow: auto;
+}
+
+.list-wrap .item .name,
+.list-wrap .item .title {
+   font-size: 17px;
+   color: #333;
+   font-weight: 700;
+   padding-right: 5px;
+   flex-shrink: 1
+}
+
+.list-wrap .item .detail {
+   box-sizing: border-box;
+   line-height: 1;
+   overflow: hidden
+}
+
+.list-wrap .item .detail>div+div {
+   margin-top: 6px;
+   line-height: 15px
+}
+
+.list-wrap .item .detail .actor,
+.list-wrap .item .detail .score,
+.list-wrap .item .detail .show-date,
+.list-wrap .item .detail .show-info {
+   font-size: 13px;
+   color: #666
+}
+.list-wrap .item .button-block .btn {
+   width: 47px;
+   height: 27px;
+   line-height: 28px;
+   text-align: center;
+   box-sizing: border-box;
+   background-color: #f03d37;
+   color: #fff;
+   border-radius: 4px;
+   white-space: nowrap;
+   font-size: 12px;
+   cursor: pointer
+}
+.item{
+   width: 100%;
+   height: 1.14rem;
+   padding-left: .18rem;
+   padding-top: .1rem;
+}
+.main-block{
+   display:flex;
+   align-items: center;
+}
+
+
+.mb-outline-b{
+   display: flex;
+   flex: 1;
+   align-items: center;
+}
+
+.column{
+   display: flex;
+   flex-direction: column;
+   width: 70%;
+}
+.detail{
+   width: 100%;
+}
+.text{
+   text-align: left;
+   padding-left: .1rem;
+}
+.avatar{
+   width: .64rem!important;
+   height: .9rem!important;
+}
+.default-img-bg{
+   width: .64rem!important;
+   height: .9rem!important;
+}
+.default-img-bg img{
+   width: .64rem!important;
+   height: .9rem!important;
+}
+.actor{
+   height: .3rem;
+}
+.page{
+ flex: 1;
+}

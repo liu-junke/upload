@@ -1,0 +1,29 @@
+@import '../../assets/style/border.scss';
+@import '../../assets/style/theme.scss';
+.container{
+    .nav{
+        height: .44rem;
+        width: 100%;
+        @include border(#ccc,0 0 1px 0);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        a{
+            font-size: .15rem;
+            color: #777777;
+            text-decoration: none;
+            height: .44rem;
+            line-height: .44rem;
+            padding: 0 .18rem;
+            border-bottom: 2px solid transparent;
+            &.active{
+                color: $theme;
+                border-bottom: 2px solid $theme;
+            }
+        }
+    }
+}
+.home{
+    display: flex;
+    flex-direction: column;
+}
