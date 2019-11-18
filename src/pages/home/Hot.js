@@ -8,6 +8,12 @@ import BScroll from 'better-scroll';
 import _ from 'loadsh'
 
 class Movie extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      fresh:true
+    }
+  }
 
     componentDidMount(){
       console.log('didmount')
@@ -16,7 +22,7 @@ class Movie extends Component{
         let count=0
         const bs=new BScroll('.page',{
           pullUpLoad:{
-            threshold:50
+            threshold:80
           }
         })  
         bs.on('pullingUp',()=>{ 
@@ -40,6 +46,10 @@ class Movie extends Component{
             // this.showLoading()
             setTimeout(()=>{
             this.props.getFutureMovies( ids[ count ].join(',') );
+            console.log(this.state.fresh)
+            this.setState({
+              fresh:!this.state.fresh
+            })
             // // Indicator.close();
             // this.hideLoading()
             },800)
