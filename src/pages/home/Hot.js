@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {getMovies} from '../../actions'
+import {getMovies,getFutureMovies} from '../../actions'
 import {imgFilter} from '../../filter'
 import './hot.scss'
 import BScroll from 'better-scroll';
@@ -10,7 +10,9 @@ import _ from 'loadsh'
 class Movie extends Component{
 
     componentDidMount(){
+      console.log('didmount')
         this.props.getMovies()
+
         let count=0
         const bs=new BScroll('.page',{
           pullUpLoad:{
@@ -22,35 +24,39 @@ class Movie extends Component{
           const ids=_.chunk(movieIds,10)
           console.log('ids',ids)
     
-        //   if(count == ids.length){
-        //     // Toast({
-        //     //   message: '已经到达底部了',
-        //     //   position: 'bottom',
-        //     //   duration: 2000
-        //     // });
-        //     bs.finishPullUp()
-        //     return;
-        //   }
+          if(count == ids.length){
+            // Toast({
+            //   message: '已经到达底部了',
+            //   position: 'bottom',
+            //   duration: 2000
+            // });
+            bs.finishPullUp()
+            return;
+          }
     
           if(count < ids.length){
             console.log('上拉加载一次') ;
             // Indicator.open('加载中...');
             // this.showLoading()
-            // setTimeout(()=>{
-            // this.getFutureMovies( ids[ count ].join(',') );
+            setTimeout(()=>{
+            this.props.getFutureMovies( ids[ count ].join(',') );
             // // Indicator.close();
             // this.hideLoading()
-            // },800)
-            
+            },800)
+            // console.log('movieids',movieIds)
+            console.log('movielist',this.props.movies.movieList)
           }
-    
+          // bs.refresh()
           bs.finishPullUp()
           count++   
           console.log(count)
         })
     }
+    componentDidUpdate(){
+      // this.renderList()
+    }
     renderList=()=>{
-        console.log('movieList',this.props.movies.movieList)
+        // console.log('movieList',this.props.movies.movieList)
         return this.props.movies.movieList.map(item=> 
     <div className="item" data-id="342773" data-bid="dp_wx_home_movie_list" key ={item.id}>
       <div className="main-block">
@@ -91,7 +97,7 @@ class Movie extends Component{
 
 export default connect(
     state=>state.movieReducer,
-    dispatch=>bindActionCreators({getMovies},dispatch)
+    dispatch=>bindActionCreators({getMovies,getFutureMovies},dispatch)
 )(Movie)
 
 

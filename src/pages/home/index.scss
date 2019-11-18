@@ -2,12 +2,14 @@
 @import '../../assets/style/theme.scss';
 .container{
     .nav{
-        height: .44rem;
+        // height: .44rem;
         width: 100%;
         @include border(#ccc,0 0 1px 0);
+        background-color: white;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        z-index:100;
         a{
             font-size: .15rem;
             color: #777777;
